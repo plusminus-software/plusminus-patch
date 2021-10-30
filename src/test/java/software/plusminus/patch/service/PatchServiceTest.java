@@ -1,6 +1,5 @@
 package software.plusminus.patch.service;
 
-import company.plusminus.test.TestUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,6 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
+import software.plusminus.check.util.JsonUtils;
 import software.plusminus.patch.helpers.TestDto;
 import software.plusminus.patch.service.patcher.Patcher;
 
@@ -39,8 +39,8 @@ public class PatchServiceTest {
 
     @Test
     public void patch() {
-        TestDto expected = TestUtils.fromJson("/json/test-dto.json", TestDto.class);
-        TestDto target = TestUtils.fromJson("/json/test-dto.json", TestDto.class);
+        TestDto expected = JsonUtils.fromJson("/json/test-dto.json", TestDto.class);
+        TestDto target = JsonUtils.fromJson("/json/test-dto.json", TestDto.class);
         TestDto patch = getPatch();
 
         patchService.patch(patch, target);
@@ -51,7 +51,7 @@ public class PatchServiceTest {
 
     @Test
     public void patch_CallsPatchers() {
-        TestDto target = TestUtils.fromJson("/json/test-dto.json", TestDto.class);
+        TestDto target = JsonUtils.fromJson("/json/test-dto.json", TestDto.class);
         TestDto patch = getPatch();
 
         patchService.patch(patch, target);

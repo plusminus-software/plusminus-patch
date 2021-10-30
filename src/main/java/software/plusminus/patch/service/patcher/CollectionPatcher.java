@@ -1,12 +1,12 @@
 package software.plusminus.patch.service.patcher;
 
-import company.plusminus.util.FieldUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 import software.plusminus.patch.annotation.CollectionPatch;
 import software.plusminus.patch.exception.PatchException;
+import software.plusminus.util.FieldUtils;
 
 import java.lang.reflect.Field;
 import java.util.AbstractMap;
